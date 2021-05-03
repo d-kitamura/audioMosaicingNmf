@@ -20,7 +20,6 @@
 
 clear;
 close all;
-addpath('./MATLAB_TSM-Toolbox_2.02');
 
 % Select audio data
 dirName = './input/ClToVn'; % directory name of input audio files
@@ -42,8 +41,8 @@ drawConv = true; % true or false (true: show convergence behavior and estimated 
 RandStream.setGlobalStream(RandStream('mt19937ar','Seed',seed))
 
 % Input data and convert to monaural
-[tarSig, sampFreq] = audioread(sprintf('%s/target.mp3', dirName)); % signal x channel x source (source image)
-[srcSig, sampFreq] = audioread(sprintf('%s/source.mp3', dirName)); % signal x channel x source (source image)
+[tarSig, sampFreq] = audioread(sprintf('%s/target.wav', dirName)); % signal x channel x source (source image)
+[srcSig, sampFreq] = audioread(sprintf('%s/source.wav', dirName)); % signal x channel x source (source image)
 tarSig = tarSig(:,1); % convert to monaural
 srcSig = srcSig(:,1); % convert to monaural
 
