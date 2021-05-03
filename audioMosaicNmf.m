@@ -92,8 +92,8 @@ function [cY, cost] = local_NMF(cV, cW, r, p, c, nIter, isDraw)
 % Initialization
 [I,J1] = size(cV); % I:frequency bins, J1: time frames
 [I,J2] = size(cW); % I:frequency bins, J2: time frames
-V = abs(cV); % amplitude spectrogram of V
-W = abs(cW); % amplitude spectrogram of W
+V = max(abs(cV), eps); % amplitude spectrogram of V
+W = max(abs(cW), eps); % amplitude spectrogram of W
 H = max(rand(J2,J1), eps); % activation matrix
 E = ones(I,J1); % ones matrix
 Z = zeros(J2, r); % zeros matrix for horizontal zero padding in H
