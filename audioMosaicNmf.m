@@ -69,7 +69,7 @@ if nIter < 1; error("The number of iterations (nIter) must be a positive integer
 % Apply NMF
 [estSpecgram, cost] = local_NMF(tarSpecgram, srcSpecgram, repLim, polLim, diaKer, nIter, isDraw);
 
-% Inverse STFT for each source
+% Apply inverse STFT
 est = ISTFT(estSpecgram, shiftLen, winInStft, tarLen);
 end
 
