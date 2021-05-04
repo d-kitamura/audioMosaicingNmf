@@ -31,6 +31,8 @@ seed = 1; % pseudo random seed
 fftSize = 4096; % window length in STFT [points]
 shiftSize = 2048; % shift length in STFT [points]
 windowType = "hamming"; % window function used in STFT
+sigDomain = 1; % signal domain in NMF decomposition (1: amplitude spectrogram, 2: power spectrogram)
+nmfCost = "KL"; % similarity measure of NMF (IS: Itakura-Saito divergence, KL: Kullback-Leibler divergence, EU: squared Euclidean distance)
 repeatLim = 3; % length of horizontal neighborhood elements to restrict repetition [frames] (denoted as "r" in the paper)
 polyphLim = 10; % number of simultaneous activations to restrict polyphony [bases] (denoted as "p" in the paper)
 diagKer = 3; % length of diagonal neighborhood elements to enhance continuity (denoted as "c" in the paper)
@@ -47,7 +49,7 @@ tarSig = tarSig(:,1); % convert to monaural
 srcSig = srcSig(:,1); % convert to monaural
 
 % Audio Mosaicing based on NMF
-[estSig, cost] = audioMosaicNmf(tarSig, srcSig, fftSize, shiftSize, windowType, repeatLim, polyphLim, diagKer, nIter, drawConv);
+[estSig, cost] = audioMosaicNmf(tarSig, srcSig, fftSize, shiftSize, windowType, sigDomain, nmfCost, repeatLim, polyphLim, diagKer, nIter, drawConv);
 
 % Output separated signals
 outputDir = sprintf('./output');

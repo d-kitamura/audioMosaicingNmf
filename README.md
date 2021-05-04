@@ -8,13 +8,15 @@ J. Driedger, T. Pratzlich, and M. Muller, "Let it bee — towards NMF-inspired a
 J. Driedger and M. Muller, "TSM toolbox: MATLAB implementations of time-scale modification algorithms," in Proc. DAFx, pp. 249–256, 2014.
 
 ## Contents
-- input [dir]:		        includes test audio signals
-- audioMosaicNmf.m:         NMF-based audio mosaicing
-- ISTFT.m:			        inverse short-time Fourier transform
-- main.m:			        main script with parameter settings
-- STFT.m:			        short-time Fourier transform
+- input [dir]:		                includes test audio signals
+- input_withPitchShift [dir]:	    includes test audio signals that require pitch shifting before applying mosaicing
+- MATLAB_TSM-Toolbox_2.02 [dir]:    inludes TSM toolbox that is utilized for pitch shifting (redistributed under GNU license without any modifications)
+- audioMosaicNmf.m:                 NMF-based audio mosaicing
+- ISTFT.m:			                inverse short-time Fourier transform
+- main.m:			                sample main script
+- main_withPitchShift.m:		    sample main script with pitch shifter
+- STFT.m:			                short-time Fourier transform
 
 ## Usage Note
-When the source signal does not include enough pitches for mosaicing, you must poduce various pitches by applying a pitch shifting algorithm. 
-According to the reference paper, "pitchShiftViaTSM.m" can be used, which is a part of Toolbox called "TSM toolbox" and can be downloaded at https://www.audiolabs-erlangen.de/resources/MIR/TSMtoolbox
-Useful information can be found at https://www.audiolabs-erlangen.de/resources/MIR/2015-ISMIR-LetItBee
+When the source signal does not include enough pitches for mosaicing, you must poduce various pitches by applying a pitch shifting algorithm. This is implemented in "main_withPitchShift.m" using TSM toolbox, which can be downloaded at https://www.audiolabs-erlangen.de/resources/MIR/TSMtoolbox and redistributed under GNU license.  
+For NMF-based audio mosaicing, please visit the authors' website: https://www.audiolabs-erlangen.de/resources/MIR/2015-ISMIR-LetItBee
